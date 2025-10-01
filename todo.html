@@ -6,21 +6,23 @@
   <title>Simple To-Do List</title>
   <style>
     body {
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
-      background: #05bcff;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
       display: flex;
       justify-content: center;
       margin-top: 50px;
     }
     .container {
-      background: rgb(255, 255, 255);
+      background: white;
       padding: 20px;
       border-radius: 10px;
       width: 300px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
     }
     h2 {
-      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
     }
     input {
       width: 70%;
@@ -52,11 +54,18 @@
       text-decoration: line-through;
       color: gray;
     }
+    img {
+      width: 80px;
+      height: auto;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>📝 To-Do List buatt piyuu👻</h2>
+    <!-- Tambahkan logo -->
+    <img src="images/todo-icon.png" alt="ToDo Logo">
+    <h2>📝 To-Do List</h2>
+
     <input type="text" id="taskInput" placeholder="Tambah tugas...">
     <button onclick="addTask()">Tambah</button>
     <ul id="taskList"></ul>
