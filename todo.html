@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple To-Do List</title>
+  <style>
+    body {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, sans-serif;
+      background: #05bcff;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .container {
+      background: rgb(255, 255, 255);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 70%;
+      padding: 8px;
+      margin-right: 5px;
+    }
+    button {
+      padding: 8px 12px;
+      background: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    ul {
+      margin-top: 20px;
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #e9ecef;
+      padding: 8px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 5px;
+    }
+    li.done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📝 To-Do List buatt piyuu👻</h2>
+    <input type="text" id="taskInput" placeholder="Tambah tugas...">
+    <button onclick="addTask()">Tambah</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    function addTask() {
+      let input = document.getElementById("taskInput");
+      let task = input.value.trim();
+      if (task === "") return;
+
+      let li = document.createElement("li");
+      li.textContent = task;
+
+      // Klik untuk tandai selesai
+      li.onclick = function() {
+        li.classList.toggle("done");
+      };
+
+      // Tombol hapus
+      let delBtn = document.createElement("button");
+      delBtn.textContent = "❌";
+      delBtn.style.background = "red";
+      delBtn.style.marginLeft = "10px";
+      delBtn.onclick = function() {
+        li.remove();
+      };
+
+      li.appendChild(delBtn);
+      document.getElementById("taskList").appendChild(li);
+
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
